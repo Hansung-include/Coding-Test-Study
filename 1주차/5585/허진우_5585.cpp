@@ -19,7 +19,7 @@ int main () {
     cin >> money; // 입력
     money = 1000 - money; // 거슬러 줄 돈을 계산한다.
     
-    // arr[i]가 arr[i+1]의 배수이므로, 가장 큰 잔돈부터 주면 곧 가장 적은 거스름돈 개수가 된다
+    // arr[i]가 arr[i+1]의 배수이므로, 가장 큰 잔돈부터 주면 곧 가장 적은 거스름돈 개수가 된다.
     for(int i = 0; i < 6; i++) { 
         cnt += money / arr[i];
         money %= arr[i];
