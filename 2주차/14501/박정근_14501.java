@@ -1,27 +1,42 @@
+package BOJ.p14500;
+
 import java.io.*;
 import java.util.*;
 
-public class BOJ14501 {
+// 1일차 상담부터 가능한 모든 경우의 수를 dp를 통해 최댓값을 계산하면 됩니다.
+
+public class BOJ14501_dp {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringTokenizer st;
+    static StringBuilder sb = new StringBuilder("");
+
     static int N;
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static int[] T, P, dp;
+
+    static void input() throws IOException {
         N = Integer.parseInt(br.readLine());
-        int[] T = new int[N+1+5];
-        int[] P = new int[N+1+5];
-        int[] dp = new int[N+1+5];
-
+        T = new int[N+5+1];
+        P = new int[N+5+1];
+        dp = new int[N+5+1];
         for(int i=1; i<=N; i++){
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            T[i] = Integer.parseInt(st.nextToken());
-            P[i] = Integer.parseInt(st.nextToken());
+            st = new StringTokenizer(br.readLine());
+            int t = Integer.parseInt(st.nextToken());
+            int p = Integer.parseInt(st.nextToken());
+            T[i] = t; P[i] = p;
         }
+    }
 
+    static void process(){
         int max = 0;
         for(int i=1; i<=N+1; i++){
             dp[i] = Math.max(max, dp[i]);
-            dp[T[i]+i] = Math.max(dp[T[i]+i], dp[i]+P[i]);
+            dp[T[i]+i] = Math.max(dp[T[i]+i], P[i]+dp[i]);
             max = Math.max(dp[i], max);
         }
         System.out.println(max);
+    }
+    public static void main(String[] args) throws IOException {
+        input();
+        process();
     }
 }

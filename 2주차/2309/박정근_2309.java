@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+//난쟁이를 7명만 뽑으면 되기 때문에 count로 세면서 7일 때 sum이 100이면 출력해주면 됩니다.
+
 public class BOJ2309 {
 	static int[] person = new int[10];
 	static int[] visit = new int[8]; 

@@ -1,9 +1,10 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.Scanner;
+package BOJ.p1000;
 
-public class BOJ1021 {
+import java.util.*;
+
+//deque를 이용해서 index를 찾고 좌우 중 가까운 곳으로 회전 시키면 해결할 수 있습니다.
+
+public class BOJ1021_deque {
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt(), M = sc.nextInt();
