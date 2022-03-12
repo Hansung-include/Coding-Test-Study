@@ -5,7 +5,7 @@ import java.util.*;
 
 // 1일차 상담부터 가능한 모든 경우의 수를 dp를 통해 최댓값을 계산하면 됩니다.
 
-public class BOJ14501_dp {
+public class BOJ14501{
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder("");
