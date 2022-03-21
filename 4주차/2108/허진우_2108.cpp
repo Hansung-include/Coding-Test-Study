@@ -1,3 +1,9 @@
+/*
+ * 이름: 허진우 
+ * 언어: C++17
+ * 문제: 백준/2108
+*/
+
 #include <iostream>
 #include <array>
 #include <algorithm>
