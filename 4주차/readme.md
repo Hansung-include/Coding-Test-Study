@@ -9,4 +9,4 @@
   - [동빈나님의 이코테 강의](https://youtu.be/m-9pAwq1o3w) 
 - 파이썬 언어 참고할만한 모듈 및 기법 정리
   - https://western-sky.tistory.com/92 
-- 발표자: 
+- 발표자: 김민준, 오유진, 복정빈, 허진우, 박정근 중 3명
