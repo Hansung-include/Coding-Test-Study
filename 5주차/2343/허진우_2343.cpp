@@ -1,7 +1,7 @@
 /*
  * 이름: 허진우 
  * 언어: C++17
- * 문제: 백준/10814
+ * 문제: 백준/2343
 */
 #include <bits/stdc++.h>
 using namespace std;
