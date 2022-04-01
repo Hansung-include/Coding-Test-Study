@@ -9,4 +9,4 @@
   - [동빈나님의 이코테 강의](https://youtu.be/m-9pAwq1o3w) 
 - 파이썬 언어 bisect 모듈로 써서 간단하게 구현하기
   - https://programmers.co.kr/learn/courses/4008/lessons/13173
-- 발표자: 
+- 발표자: 이준형,허진우,서미란,박정근 중 3명
