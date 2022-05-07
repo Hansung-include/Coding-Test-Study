@@ -7,7 +7,8 @@
 /*
  * 풀이
  * 방향 그래프 + 모든 간선의 가중치가 양수이므로 다익스트라가 적절하다고 판단함.
- * 거리가 모두 1이기 때문에 우선순위큐가 필요하지는 않아보여 단순한 큐로 해결을 보았다.
+ * 거리가 모두 1이기 때문에 우선순위큐가 필요하지는 않아보여 단순한 큐로 해결을 보았다. (sol)
+ * 하지만 다익스트라를 공부하기 위해, 다익스트라 알고리즘으로도 해결해보았다. (sol2)
 */
 
 #include <bits/stdc++.h>
@@ -26,11 +27,11 @@ void input() {
 
     for (int i = 0; i < m; i++) {
         cin >> start >> end;
-        graph[start].push_back({ end, 1 });
+        graph[start].push_back({ 1, end });
     }
 }
 
-void sol() { // dijkstra? bfs?
+void sol() { // bfs
     int dist_arr[n + 1] = { 0, };
     bool visit[n + 1] = {false, };
     queue<pii> q;
@@ -43,15 +44,51 @@ void sol() { // dijkstra? bfs?
         int dist = q.front().second;
         q.pop();
 
-        for (const auto& next : graph[prev]) {
-            if (!visit[next.first]) {
-                q.push({ next.first, next.second + dist });
-                visit[next.first] = true;
-                dist_arr[next.first] = next.second + dist;
+        for (const auto& p : graph[prev]) {
+            int next = p.second, next_dist = p.first;
+            if (!visit[next]) {
+                q.push({ next, next_dist + dist });
+                visit[next] = true;
+                dist_arr[next] = next_dist + dist;
             }
         }
     }
 
+    bool cout_flag = true;
+    for(int i = 1; i <= n; i++) {
+        if (dist_arr[i] == k) {
+            cout_flag = false;
+            cout << i << endl;
+        }
+    }
+    if (cout_flag) cout << -1;
+}
+
+void sol2() { // dijkstra
+    int dist_arr[n + 1];
+    fill(dist_arr, dist_arr + n + 1, INF);
+    bool visit[n + 1] = {false, };
+    priority_queue<pii, vector<pii>, greater<pii>> pq;
+
+    pq.push({0, x});
+    dist_arr[x] = 0;
+
+    while(!pq.empty()) {
+        int prev = pq.top().second;
+        pq.pop();
+        if (visit[prev]) continue;
+        
+        visit[prev] = true;
+        
+        for(const auto& elem : graph[prev]) {
+            int next = elem.second, dist = elem.first;
+            if (dist_arr[next] > dist_arr[prev] + dist) {
+                dist_arr[next] = dist_arr[prev] + dist;
+                pq.push({dist_arr[next], next});
+            }
+        }
+    }
+    
     bool cout_flag = true;
     for(int i = 1; i <= n; i++) {
         if (dist_arr[i] == k) {
@@ -67,5 +104,6 @@ int main() {
     cin.tie(nullptr);
 
     input();
-    sol();
+    // sol();
+    // sol2();
 }
